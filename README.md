@@ -180,6 +180,28 @@ type Comment = {
 
 **Performance**: Optimized with React hooks (`useCallback`, `useMemo`) and memory leak prevention.
 
+🔗 Live Demo
+
+The project is deployed on Vercel:
+
+👉 https://post-comments-app.vercel.app/
+
+You can test:
+
+Creating posts
+
+Drag & drop uploads
+
+Emoji & GIF comments
+
+Infinite nested comment threads
+
+Light/Dark mode toggle
+
+⚠️ Image Upload Limit
+
+Please keep uploaded image files below 4.5 MB.
+
 **GIF Data**: Stored in `public/gifs.json`. Add more GIFs by updating the JSON file with local GIF URLs.
 
 ## 📄 License
