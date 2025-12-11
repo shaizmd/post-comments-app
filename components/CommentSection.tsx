@@ -25,17 +25,17 @@ export default function CommentSection({ postId, onCommentCountChange }: Props) 
       .then((res) => res.json())
       .then((data: Comment[]) => {
         setComments(data);
-        onCommentCountChangeRef.current?.(data.length);
       })
       .catch((err) => console.error("Error fetching comments:", err));
   }, [postId]);
 
+  // Update parent with comment count whenever it changes
+  useEffect(() => {
+    onCommentCountChangeRef.current?.(comments.length);
+  }, [comments.length]);
+
   const handleCommentCreated = useCallback((comment: Comment) => {
-    setComments((prev) => {
-      const newComments = [...prev, comment];
-      onCommentCountChangeRef.current?.(newComments.length);
-      return newComments;
-    });
+    setComments((prev) => [...prev, comment]);
   }, []);
 
   // Memoize comment tree calculation
