@@ -4,7 +4,6 @@ A modern Next.js application with post creation and infinitely nested comments. 
 
 ## 📸 Screenshots
 
-> **Note:** Add screenshots in the `screenshots/` folder and update the paths below.
 
 ### Main Feed (Light Mode)
 <img width="700" alt="Main Feed Light Mode" src="https://github.com/user-attachments/assets/2be40f63-2c9e-4d37-b5d3-14d5b6457018" />
