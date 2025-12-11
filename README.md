@@ -1,36 +1,197 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Post + Nested Comments System
 
-## Getting Started
+A modern Next.js application with post creation and infinitely nested comments. Features drag & drop uploads, emoji picker, local GIF search, and dark mode - all without external APIs.
 
-First, run the development server:
+## 📸 Screenshots
+
+> **Note:** Add screenshots in the `screenshots/` folder and update the paths below.
+
+### Main Feed (Light Mode)
+![Main Feed Light Mode](./screenshots/main-feed-light.png)
+*Screenshot: Show the main feed with multiple posts and the post creation form*
+
+### Dark Mode
+![Dark Mode](./screenshots/dark-mode.png)
+*Screenshot: Show the app in dark mode with posts and comments visible*
+
+### Nested Comments
+![Nested Comments](./screenshots/nested-comments.png)
+*Screenshot: Show a post with multiple levels of nested comments (at least 3 levels deep)*
+
+### Comment Features
+![Comment Features](./screenshots/comment-features.png)
+*Screenshot: Show the comment form with emoji picker, GIF picker, or image upload interface open*
+
+### Post Creation
+![Post Creation](./screenshots/post-creation.png)
+*Screenshot: Show the post creation form with an image preview or drag & drop interface*
+
+## ✨ Features
+
+**Core Functionality**
+- Create posts with text and file uploads (images/documents)
+- Multi-post feed with social media-style layout
+- Infinite nested comments with visual threading
+- Rich comment content: text, emojis, images, and GIFs
+- Per-post comment counting and threading
+- Collapse/expand comment threads
+
+**Enhanced UX**
+- Drag & drop file uploads
+- Dark mode with localStorage persistence
+- Local GIF search and filtering
+- Real-time preview for uploads
+- Smooth animations and transitions
+- Performance optimized (memoization, memory management)
+
+**Technical**
+- In-memory mock backend (RESTful API)
+- No external APIs or databases
+- TypeScript with strict typing
+- Responsive design for all devices
+
+## 🛠️ Tech Stack
+
+- **Next.js ** (App Router) with TypeScript
+- **Tailwind CSS ** (modern styling with custom variants)
+- **emoji-picker-react** (local emoji selection)
+- **date-fns** (timestamp formatting)
+
+## 🚀 Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Available Commands**
+```bash
+npm run dev      # Development server
+npm run build    # Production build
+npm run start    # Production server
+npm run lint     # Run ESLint
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+post-comments-app/
+├── app/
+│   ├── api/
+│   │   ├── comments/route.ts    # Comment API
+│   │   └── post/route.ts        # Post API
+│   ├── globals.css              # Global styles + dark mode
+│   ├── layout.tsx               # Root layout
+│   └── page.tsx                 # Main feed page
+├── components/
+│   ├── PostForm.tsx             # Post creation with drag & drop
+│   ├── PostView.tsx             # Post display
+│   ├── CommentSection.tsx       # Comments container
+│   ├── CommentForm.tsx          # Comment form with emoji/GIF
+│   └── CommentItem.tsx          # Individual comment (nested)
+├── data/
+│   └── store.ts                 # In-memory storage
+├── lib/
+│   └── buildCommentTree.ts      # Nested comment tree builder
+├── public/
+│   └── gifs.json                # Local GIF database
+└── types/
+    └── index.ts                 # TypeScript definitions
+```
 
-## Learn More
+## 💾 Data Models
 
-To learn more about Next.js, take a look at the following resources:
+### Post Type
+```typescript
+type Post = {
+  id: string;
+  username: string;
+  text: string;
+  fileUrl?: string;       // base64 or blob URL
+  fileName?: string;
+  createdAt: string;      // ISO string
+};
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Comment Type
+```typescript
+type Comment = {
+  id: string;
+  postId: string;
+  parentId?: string;
+  text?: string;
+  image?: string;         // base64 or blob URL
+  gif?: string;           // URL from gifs.json
+  createdAt: string;
+};
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 UI/UX Highlights
 
-## Deploy on Vercel
+- Modern gradient design with glass-morphism effects
+- Dark mode toggle with system preference detection
+- Drag & drop file uploads with preview
+- Smooth animations and micro-interactions
+- Visual threading with collapse/expand
+- Real-time comment counting
+- Responsive for mobile/tablet/desktop
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Create a Post**
+- Type your message (required)
+- Drag & drop or click to upload image/file
+- Click "Post" to publish
+
+**Add Comments**
+- Click "Add comment" on any post
+- Type text and optionally add emoji/image/GIF
+- Hit "Comment" to submit
+
+**Reply to Comments**
+- Click "Reply" on any comment
+- Nested reply form appears inline
+- Supports same features as top-level comments
+
+**Dark Mode**
+- Click the sun/moon icon in header
+- Preference saved to localStorage
+
+## ✅ Assignment Compliance
+
+**Core Requirements**
+- Next.js App Router + TypeScript
+- Post creation (text + file upload)
+- Image/file preview & base64 conversion
+- Post display (username, timestamp, content, comment count)
+- Infinite nested comments with visual indentation
+- Comments support: text, emojis, images, GIFs
+- Mock backend API (in-memory storage)
+- No external APIs or databases
+
+**Bonus Features**
+- Drag & drop uploads
+- Local GIF search
+- Dark mode toggle
+- Thread animations
+- Optimistic UI updates
+- Performance optimizations
+
+## 💡 Technical Notes
+
+**Storage**: In-memory server-side arrays. Data resets on server restart (intentional per requirements).
+
+**Dark Mode**: Uses Tailwind v4 custom variant (`@custom-variant dark`) for proper class-based theming.
+
+**Performance**: Optimized with React hooks (`useCallback`, `useMemo`) and memory leak prevention.
+
+**GIF Data**: Stored in `public/gifs.json`. Add more GIFs by updating the JSON file with local GIF URLs.
+
+## 📄 License
+
+Demo project for assignment purposes.
