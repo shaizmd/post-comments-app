@@ -180,7 +180,7 @@ type Comment = {
 
 **Performance**: Optimized with React hooks (`useCallback`, `useMemo`) and memory leak prevention.
 
-🔗 Live Demo
+## 🔗 Live Demo
 
 The project is deployed on Vercel:
 
@@ -188,17 +188,17 @@ The project is deployed on Vercel:
 
 You can test:
 
-Creating posts
+- Creating posts
 
-Drag & drop uploads
+- Drag & drop uploads
 
-Emoji & GIF comments
+- Emoji & GIF comments
 
-Infinite nested comment threads
+- Infinite nested comment threads
 
-Light/Dark mode toggle
+- Light/Dark mode toggle
 
-⚠️ Image Upload Limit
+## ⚠️ Image Upload Limit
 
 Please keep uploaded image files below 4.5 MB.
 
