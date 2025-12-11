@@ -7,20 +7,16 @@ A modern Next.js application with post creation and infinitely nested comments. 
 > **Note:** Add screenshots in the `screenshots/` folder and update the paths below.
 
 ### Main Feed (Light Mode)
-<img width="1119" height="867" alt="Screenshot 2025-12-11 190034" src="https://github.com/user-attachments/assets/2be40f63-2c9e-4d37-b5d3-14d5b6457018" />
-
+<img width="700" alt="Main Feed Light Mode" src="https://github.com/user-attachments/assets/2be40f63-2c9e-4d37-b5d3-14d5b6457018" />
 
 ### Dark Mode
-<img width="1147" height="863" alt="Screenshot 2025-12-11 190100" src="https://github.com/user-attachments/assets/4941436f-ac64-454d-bb9a-f036903c4655" />
-
+<img width="700" alt="Dark Mode" src="https://github.com/user-attachments/assets/4941436f-ac64-454d-bb9a-f036903c4655" />
 
 ### Nested Comments
-<img width="980" height="566" alt="Screenshot 2025-12-11 190142" src="https://github.com/user-attachments/assets/0574026a-f67a-43bf-ad7f-198a1e588dc4" />
-
+<img width="700" alt="Nested Comments" src="https://github.com/user-attachments/assets/0574026a-f67a-43bf-ad7f-198a1e588dc4" />
 
 ### Post Creation
-<img width="1180" height="542" alt="Screenshot 2025-12-11 190122" src="https://github.com/user-attachments/assets/e9e84f1d-53dc-4b15-b4a5-1f28dcea3688" />
-
+<img width="700" alt="Post Creation" src="https://github.com/user-attachments/assets/e9e84f1d-53dc-4b15-b4a5-1f28dcea3688" />
 
 ## ✨ Features
 
@@ -63,7 +59,6 @@ npm install
 npm run dev
 
 # Open http://localhost:3000
-```
 
 **Available Commands**
 ```bash
